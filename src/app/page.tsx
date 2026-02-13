@@ -72,7 +72,6 @@ function HomePage() {
 
   return (
     <>
-
       <div className={styles.mainBody}>
         <div className={styles.header}>
           <div className={styles.topLeft}>
@@ -144,35 +143,35 @@ function HomePage() {
           <div
             style={{ backgroundColor: '#ffffff', width: '60px', display: 'flex', alignItems: 'center', gap: "7px", borderRadius: '20px', padding: '3px 6px 3px 6px' }}
           >
-            <img src="/assets/search_100.png" width={12} height={12} />
+            <img src="/assets/search_100.png" width={12} height={12} alt="search icon" />
 
             <div style={{ color: '#444746', fontSize: '0.65em' }}>Menus</div>
           </div>
 
-          <img src="/assets/plus.png" width={16} height={16} />
-          <img src="/assets/down.png" width={16} height={16} />
+          <img src="/assets/plus.png" width={16} height={16} alt="plus icon" />
+          <img src="/assets/down.png" width={16} height={16} alt="down arrow" />
 
           <div className={styles.bars}> | </div>
 
 
-          <img src="/assets/undo.png" width={16} height={16} />
-          <img src="/assets/redo.png" width={16} height={16} />
-          <img src="/assets/print.png" width={16} height={16} />
-          <img src="/assets/paint.png" width={16} height={16} />
+          <img src="/assets/undo.png" width={16} height={16} alt="undo icon" />
+          <img src="/assets/redo.png" width={16} height={16} alt="redo icon" />
+          <img src="/assets/print.png" width={16} height={16} alt="print icon" />
+          <img src="/assets/paint.png" width={16} height={16} alt="paint icon" />
 
-          <img src="/assets/zoom.png" width={16} height={16} />
+          <img src="/assets/zoom.png" width={16} height={16} alt="zoom icon" />
           <div style={{ color: '#444746', fontSize: '0.78em' }}>104%</div>
-          <img src="/assets/down.png" width={16} height={16} />
+          <img src="/assets/down.png" width={16} height={16} alt="down arrow" />
           <div style={{ color: '#444746', fontSize: '0.78em' }}> | </div>
 
-          <img src="/assets/mouse.png" width={16} height={16} />
-          <img src="/assets/text.png" width={16} height={16} />
-          <img src="/assets/shapes.png" width={16} height={16} />
-          <img src="/assets/line.png" width={16} height={16} />
-          <img src="/assets/down.png" width={16} height={16} />
+          <img src="/assets/mouse.png" width={16} height={16} alt="mouse icon" />
+          <img src="/assets/text.png" width={16} height={16} alt="text icon" />
+          <img src="/assets/shapes.png" width={16} height={16} alt="shapes icon" />
+          <img src="/assets/line.png" width={16} height={16} alt="line icon" />
+          <img src="/assets/down.png" width={16} height={16} alt="down arrow" />
 
           <div style={{ color: '#444746', fontSize: '0.78em' }}> | </div>
-          <img src="/assets/add_comment.png" width={16} height={16} />
+          <img src="/assets/add_comment.png" width={16} height={16} alt="add comment icon" />
 
           <div className={styles.bars}> | </div>
 
@@ -198,17 +197,15 @@ function HomePage() {
           <div className={styles.rightBody}>
             {presentation.map((each, index) => (
               <div
+                key={index}
                 className={styles.slideThumbnailBox}
                 onClick={() => handleSlideClick(index)}>
                 <div className={styles.slideNumber}> {index + 1} </div>
                 <button className={styles.slideThumbnail}>
                   <div className={styles.slideThumbnailTitle}> Question {index + 1} </div>
                   <div className={styles.slideThumbnailBody}> {decodeHtml(each.question)} </div>
-
                 </button>
-
               </div>
-
             ))}
           </div>
 
