@@ -1,8 +1,7 @@
 "use client"
 
 
-import { useState, useEffect, use } from 'react'
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 
 import styles from "./page.module.css";
@@ -30,13 +29,12 @@ function HomePage() {
 
   async function getSlides(url: string) {
     try {
-      const response = await axios.get(url);
-
+      const response = await axios.get<{ results: Presentation[] }>(url);
       console.log(response.data.results);
       setPresentation(response.data.results);
-      setCategory(response.data.results[0].category);
-
-
+      if (response.data.results && response.data.results.length > 0) {
+        setCategory(response.data.results[0]?.category ?? "Untitled Presentation");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -59,9 +57,8 @@ function HomePage() {
   useEffect(() => {
     const chosen = presentations[Math.floor(Math.random() * presentations.length)];
     if (chosen) {
-      getSlides(chosen.url);
+      void getSlides(chosen.url);
     }
-
   }, []);
 
   function handleSlideClick(index: number) {
