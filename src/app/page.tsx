@@ -1,7 +1,9 @@
 "use client"
 
+
 import { useState, useEffect, use } from 'react'
 import { Link } from "react-router-dom";
+import Image from "next/image";
 
 import styles from "./page.module.css";
 import presentations from "./data/presentations.json";
@@ -143,35 +145,35 @@ function HomePage() {
           <div
             style={{ backgroundColor: '#ffffff', width: '60px', display: 'flex', alignItems: 'center', gap: "7px", borderRadius: '20px', padding: '3px 6px 3px 6px' }}
           >
-            <img src="/assets/search_100.png" width={12} height={12} alt="search icon" />
+            <Image src="/assets/search_100.png" width={12} height={12} alt="search icon" />
 
             <div style={{ color: '#444746', fontSize: '0.65em' }}>Menus</div>
           </div>
 
-          <img src="/assets/plus.png" width={16} height={16} alt="plus icon" />
-          <img src="/assets/down.png" width={16} height={16} alt="down arrow" />
+          <Image src="/assets/plus.png" width={16} height={16} alt="plus icon" />
+          <Image src="/assets/down.png" width={16} height={16} alt="down arrow" />
 
           <div className={styles.bars}> | </div>
 
 
-          <img src="/assets/undo.png" width={16} height={16} alt="undo icon" />
-          <img src="/assets/redo.png" width={16} height={16} alt="redo icon" />
-          <img src="/assets/print.png" width={16} height={16} alt="print icon" />
-          <img src="/assets/paint.png" width={16} height={16} alt="paint icon" />
+          <Image src="/assets/undo.png" width={16} height={16} alt="undo icon" />
+          <Image src="/assets/redo.png" width={16} height={16} alt="redo icon" />
+          <Image src="/assets/print.png" width={16} height={16} alt="print icon" />
+          <Image src="/assets/paint.png" width={16} height={16} alt="paint icon" />
 
-          <img src="/assets/zoom.png" width={16} height={16} alt="zoom icon" />
+          <Image src="/assets/zoom.png" width={16} height={16} alt="zoom icon" />
           <div style={{ color: '#444746', fontSize: '0.78em' }}>104%</div>
-          <img src="/assets/down.png" width={16} height={16} alt="down arrow" />
+          <Image src="/assets/down.png" width={16} height={16} alt="down arrow" />
           <div style={{ color: '#444746', fontSize: '0.78em' }}> | </div>
 
-          <img src="/assets/mouse.png" width={16} height={16} alt="mouse icon" />
-          <img src="/assets/text.png" width={16} height={16} alt="text icon" />
-          <img src="/assets/shapes.png" width={16} height={16} alt="shapes icon" />
-          <img src="/assets/line.png" width={16} height={16} alt="line icon" />
-          <img src="/assets/down.png" width={16} height={16} alt="down arrow" />
+          <Image src="/assets/mouse.png" width={16} height={16} alt="mouse icon" />
+          <Image src="/assets/text.png" width={16} height={16} alt="text icon" />
+          <Image src="/assets/shapes.png" width={16} height={16} alt="shapes icon" />
+          <Image src="/assets/line.png" width={16} height={16} alt="line icon" />
+          <Image src="/assets/down.png" width={16} height={16} alt="down arrow" />
 
           <div style={{ color: '#444746', fontSize: '0.78em' }}> | </div>
-          <img src="/assets/add_comment.png" width={16} height={16} alt="add comment icon" />
+          <Image src="/assets/add_comment.png" width={16} height={16} alt="add comment icon" />
 
           <div className={styles.bars}> | </div>
 
