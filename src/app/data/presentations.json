@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "title": "Computers",
+        "url": "https://opentdb.com/api.php?amount=10&category=18&type=boolean"
+    },
+    {
+        "id": 2,
+        "title": "General Knowledge",
+        "url": "https://opentdb.com/api.php?amount=10&category=9&type=boolean"
+    },
+    {
+        "id": 3,
+        "title": "History",
+        "url": "https://opentdb.com/api.php?amount=10&category=23&type=boolean"
+    },
+    {
+        "id": 4,
+        "title": "Science & Nature",
+        "url": "https://opentdb.com/api.php?amount=10&category=17&type=boolean"
+    },
+    {
+        "id": 5,
+        "title": "Sports",
+        "url": "https://opentdb.com/api.php?amount=10&category=21&type=boolean"
+    },
+    {
+        "id": 6,
+        "title": "Geography",
+        "url": "https://opentdb.com/api.php?amount=10&category=22&type=boolean"
+    },
+    {
+        "id": 7,
+        "title": "Art",
+        "url": "https://opentdb.com/api.php?amount=10&category=25&type=boolean"
+    },
+    {
+        "id": 8,
+        "title": "Celebrities",
+        "url": "https://opentdb.com/api.php?amount=10&category=26&type=boolean"
+    },
+    {
+        "id": 9,
+        "title": "Animals",
+        "url": "https://opentdb.com/api.php?amount=10&category=27&type=boolean"
+    },
+    {
+        "id": 10,
+        "title": "Vehicles",
+        "url": "https://opentdb.com/api.php?amount=10&category=28&type=boolean"
+    }
+]
