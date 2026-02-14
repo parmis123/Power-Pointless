@@ -1,51 +1,61 @@
 [
     {
         "id": 1,
+        "image": "/assets/computers.png",
         "title": "Computers",
         "url": "https://opentdb.com/api.php?amount=10&category=18&type=boolean"
     },
     {
         "id": 2,
+        "image": "/assets/general_knowledge.png",
         "title": "General Knowledge",
         "url": "https://opentdb.com/api.php?amount=10&category=9&type=boolean"
     },
     {
         "id": 3,
+        "image": "/assets/chess.png",
         "title": "History",
         "url": "https://opentdb.com/api.php?amount=10&category=23&type=boolean"
     },
     {
         "id": 4,
+        "image": "/assets/science_nature.png",
         "title": "Science & Nature",
         "url": "https://opentdb.com/api.php?amount=10&category=17&type=boolean"
     },
     {
         "id": 5,
+        "image": "/assets/sports.png",
         "title": "Sports",
         "url": "https://opentdb.com/api.php?amount=10&category=21&type=boolean"
     },
     {
         "id": 6,
+        "image": "/assets/geography.png",
         "title": "Geography",
         "url": "https://opentdb.com/api.php?amount=10&category=22&type=boolean"
     },
     {
         "id": 7,
+        "image": "/assets/art.png",
         "title": "Art",
         "url": "https://opentdb.com/api.php?amount=10&category=25&type=boolean"
     },
     {
         "id": 8,
+        "image": "/assets/celebrities.png",
         "title": "Celebrities",
         "url": "https://opentdb.com/api.php?amount=10&category=26&type=boolean"
     },
     {
         "id": 9,
+        "image": "/assets/animals.png",
         "title": "Animals",
         "url": "https://opentdb.com/api.php?amount=10&category=27&type=boolean"
     },
     {
         "id": 10,
+        "image": "/assets/vehicles.png",
         "title": "Vehicles",
         "url": "https://opentdb.com/api.php?amount=10&category=28&type=boolean"
     }
