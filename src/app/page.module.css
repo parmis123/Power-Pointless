@@ -32,12 +32,13 @@
 
 .options {
     display: flex;
-    gap: 9px;
+    gap: 2px;
 }
 
 .optionsText {
-    padding: 0px;
-    color: #202124;
+    border-radius: 5px;
+    color: '#444746';
+    padding: 2px 8px;
     font-size: 0.8em;
     margin: 0px;
 }
@@ -178,7 +179,7 @@
     border: #c3c3c3 1px solid;
     padding: 50px;
     margin: 20px;
-    height: 350px;
+    height: 80%;
     flex-shrink: 0;
 }
 
@@ -199,28 +200,58 @@
 /* Answer section */
 
 .answerSection {
-    margin-top: 60px;
     display: flex;
+    flex-direction: column;
+}
+
+.trueFalseSection {
+    margin-top: 60px;
     flex-direction: row;
     justify-content: space-around;
     gap: 10px;
 }
 
 .answerButton {
+    margin: 50px 0 20px 0;
+    padding: 10px 20px;
     font-size: 1.7em;
     background-color: #eeeeee;
     border-radius: 10px;
 }
 
 
-.correct {
-    background: #e6f4ea;
-    border-color: #34a853;
-    color: #137333;
+/* File menu */
+.fileMenu {
+    width: 300px;
+    position: absolute;
+    top: 59px;
+    left: 62px;
+    background-color: white;
+    border: #e9e9e9 1px solid;
+    border-radius: 3px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.wrong {
-    background: #fce8e6;
-    border-color: #ea4335;
-    color: #a50e0e;
+.fileMenuOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #444746;
+    font-size: 0.9em;
+}
+
+.result {
+
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+
 }
