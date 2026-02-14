@@ -21,17 +21,21 @@ interface Answer {
 }
 
 
+
 function HomePage() {
 
   const [presentation, setPresentation] = useState<Presentation[]>([]);
   const [category, setCategory] = useState("Untitled Presentation");
-  const [answer, setAnswer] = useState<Answer>({});
+  const [fileMenuOpen, setFileMenuOpen] = useState(false);
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+
 
   async function getSlides(url: string) {
     try {
       const response = await axios.get<{ results: Presentation[] }>(url);
       console.log(response.data.results);
       setPresentation(response.data.results);
+      setAnswers({});
       if (response.data.results && response.data.results.length > 0) {
         setCategory(response.data.results[0]?.category ?? "Untitled Presentation");
       }
@@ -40,26 +44,34 @@ function HomePage() {
     }
   }
 
-
   function decodeHtml(str = "") {
-    const textarea = document.createElement("textarea");
-    textarea.innerHTML = str;
-    return textarea.value;
+    return str
+      .replace(/&#039;/g, "'")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&ntilde;/g, "ñ")
+      .replace(/&nbsp;/g, " ");
   }
 
 
+
   function handleAnswerClick(questionNumber: number, choice: string) {
-    setAnswer({ questionNumber, choice })
-    console.log(answer);
+    setAnswers(prev => ({
+      ...prev,
+      [questionNumber]: choice
+    }));
+
+
   }
 
 
   useEffect(() => {
-    const chosen = presentations[Math.floor(Math.random() * presentations.length)];
-    if (chosen) {
-      void getSlides(chosen.url);
-    }
+    void getSlides(presentations[0]?.url ?? "");
   }, []);
+
 
   function handleSlideClick(index: number) {
     const el = document.getElementById(String(index));
@@ -67,7 +79,6 @@ function HomePage() {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }
-
 
   return (
     <>
@@ -84,11 +95,58 @@ function HomePage() {
               className={styles.text}>
               <div
                 style={{ color: '#444746' }}>
-                {category} Quiz
+                {decodeHtml(category)} Quiz
               </div>
 
               <div className={styles.options}>
-                <p className={styles.optionsText}> File</p>
+                <p className={styles.optionsText}
+                  style={{ cursor: 'pointer' }}
+                  onMouseOver={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.style.backgroundColor = "#E8E8E8";
+                  }}
+                  onMouseOut={(e) => {
+                    const target = e.target as HTMLElement;
+                    target.style.backgroundColor = "transparent";
+                  }}
+                  onClick={() => setFileMenuOpen((open) => !open)}
+                > File</p>
+                {
+                  fileMenuOpen && (
+                    <>
+                      <div
+                        className={styles.fileMenu}
+                      >
+                        {presentations.map((each, index) => (
+
+                          <div
+                            key={index}
+                            className={styles.fileMenuOption}
+                            onMouseOver={(e) => {
+                              const target = e.target as HTMLElement;
+                              target.style.backgroundColor = "#E8E8E8";
+                            }}
+                            onMouseOut={(e) => {
+                              const target = e.target as HTMLElement;
+                              target.style.backgroundColor = "transparent";
+                            }}
+                            onClick={() => {
+                              void getSlides(each.url);
+                              setFileMenuOpen(false);
+                            }}
+                          >
+                            <Image src={each.image} width={20} height={20} alt={`${each.title} icon`} />
+                            {decodeHtml(each.title)}
+
+                          </div>
+
+                        ))}
+
+                      </div>
+
+                    </>
+                  )
+                }
                 <p className={styles.optionsText}> Edit</p>
                 <p className={styles.optionsText}> View</p>
                 <p className={styles.optionsText}> Insert</p>
@@ -217,10 +275,12 @@ function HomePage() {
                 id={String(index)}
                 className={styles.slideCanvas}>
                 <div className={styles.slideTitle}> Question {index + 1} </div>
+
                 <div className={styles.slideBody}> {decodeHtml(each.question)} </div>
+
                 <div className={styles.answerSection}>
-                  {["True", "False"].map((option) => {
-                    return (
+                  <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                    {["True", "False"].map((option) => (
                       <button
                         key={option}
                         type="button"
@@ -229,14 +289,24 @@ function HomePage() {
                       >
                         {option}
                       </button>
-                    );
-                  })}
+                    ))}
+                  </div>
+
+                  {/* Feedback on next line */}
+                  {answers[index] && (
+                    <div className={styles.result} style={{
+                      backgroundColor: answers[index] === each.correct_answer ? '#d4edda' : '#f8d7da',
+                      color: answers[index] === each.correct_answer ? '#155724' : '#721c24',
+                    }}>
+                      {answers[index] === each.correct_answer ? (
+                        <>Correct!</>
+                      ) : (
+                        <>Incorrect.</>
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                <div>
-                  user clicked {answer.choice} for question {answer.questionNumber}
-                </div>
-                <div> The correct answer is {each.correct_answer}</div>
               </div>
 
             ))}
